@@ -13,6 +13,8 @@ composer require falbar/nova-card-cache
 Подключить в `NovaServiceProvider`:
 
 ```php
+use Falbar\NovaCardCache\NovaCardCache;
+
 protected function cards()
 {
     return [
