@@ -7,3 +7,17 @@
 ```bash
 composer require falbar/nova-card-cache
 ```
+
+## Подключение
+
+Подключить в `NovaServiceProvider`:
+
+```php
+protected function cards()
+{
+    return [
+        NovaCardCache::make(),
+        ...
+    ];
+}
+```
