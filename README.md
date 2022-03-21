@@ -8,7 +8,7 @@ Install it using composer :
 composer require falbar/nova-card-cache
 ```
 
-## Подключение
+## Usage
 
 Add the card tools to your `NovaServiceProvider`:
 
