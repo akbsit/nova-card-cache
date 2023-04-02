@@ -10,7 +10,7 @@ composer require falbar/nova-card-cache
 
 ## Usage
 
-Add the card tools to your `NovaServiceProvider`:
+Add the card tools to your dashboard:
 
 ```php
 use Falbar\NovaCardCache\NovaCardCache;
