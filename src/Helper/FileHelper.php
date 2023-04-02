@@ -1,17 +1,7 @@
 <?php namespace Falbar\NovaCardCache\Helper;
 
-/**
- * Class FileHelper
- * @package Falbar\NovaCardCache\Helper
- */
 class FileHelper
 {
-    /**
-     * @param int $iBytes
-     * @param int $iPrecision
-     *
-     * @return string
-     */
     public static function formatBytes(int $iBytes, int $iPrecision = 2): string
     {
         $arPostSuffixes = [' bytes', ' kb', ' mb', ' gb', ' tb'];

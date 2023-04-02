@@ -6,15 +6,10 @@ use Illuminate\Http\JsonResponse;
 
 use Falbar\NovaCardCache\Helper\CacheHelper;
 
-/**
- * Class ApiController
- * @package Falbar\NovaCardCache\Http\Controllers
- */
 class ApiController extends Controller
 {
     private const CODE_SUCCESS_REQUEST = 200;
 
-    /* @return JsonResponse */
     public function handle(): JsonResponse
     {
         Artisan::call('optimize:clear');
@@ -25,7 +20,6 @@ class ApiController extends Controller
             ->setStatusCode(self::CODE_SUCCESS_REQUEST);
     }
 
-    /* @return array */
     private function getResponseData(): array
     {
         return [

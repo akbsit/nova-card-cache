@@ -3,27 +3,20 @@
 use Falbar\NovaCardCache\Helper\CacheHelper;
 use Laravel\Nova\Card;
 
-/**
- * Class NovaCardCache
- * @package Falbar\NovaCardCache
- */
 class NovaCardCache extends Card
 {
-    /* @inheritDoc */
     public $width = '1/3';
 
-    /* @inheritDoc */
-    public function component()
+    public function component(): string
     {
         $this->setComponentMeta();
 
         return 'nova-card-cache';
     }
 
-    /* @return NovaCardCache */
-    private function setComponentMeta()
+    private function setComponentMeta(): void
     {
-        return $this->withMeta([
+        $this->withMeta([
             'size' => CacheHelper::make()->totalSize()->getFormatted(),
         ]);
     }

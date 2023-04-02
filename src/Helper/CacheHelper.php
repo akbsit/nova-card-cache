@@ -5,18 +5,14 @@ use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 
-/**
- * Class CacheHelper
- * @package Falbar\NovaCardCache\Helper
- */
 class CacheHelper
 {
-    const TYPE_VIEW = 'view';
-    const TYPE_FILE = 'file';
-    const TYPE_ROUTES = 'routes';
-    const TYPE_CONFIG = 'config';
-    const TYPE_SERVICES = 'services';
-    const TYPE_PACKAGES = 'packages';
+    private const TYPE_VIEW = 'view';
+    private const TYPE_FILE = 'file';
+    private const TYPE_ROUTES = 'routes';
+    private const TYPE_CONFIG = 'config';
+    private const TYPE_SERVICES = 'services';
+    private const TYPE_PACKAGES = 'packages';
     private const TYPE_AVAILABLE = [
         self::TYPE_VIEW,
         self::TYPE_FILE,
@@ -32,13 +28,11 @@ class CacheHelper
     private int $iSize = 0;
     private int $iTotalSize = 0;
 
-    /* @return static */
     public static function make(): self
     {
         return new static();
     }
 
-    /* @return $this */
     public function pathList(): self
     {
         $this->sLastCalledMethod = __FUNCTION__;
@@ -58,11 +52,6 @@ class CacheHelper
         return $this;
     }
 
-    /**
-     * @param string $sType
-     *
-     * @return $this
-     */
     public function size(string $sType): self
     {
         $this->sLastCalledMethod = __FUNCTION__;
@@ -102,7 +91,6 @@ class CacheHelper
         return $this;
     }
 
-    /* @return $this */
     public function totalSize(): self
     {
         $iResult = 0;
@@ -117,8 +105,7 @@ class CacheHelper
         return $this;
     }
 
-    /* @return mixed */
-    public function get()
+    public function get(): mixed
     {
         if (!method_exists($this, $this->sLastCalledMethod)) {
             return null;
@@ -132,8 +119,7 @@ class CacheHelper
         return $this->$sMethodName();
     }
 
-    /* @return mixed */
-    public function getFormatted()
+    public function getFormatted(): mixed
     {
         if (!method_exists($this, $this->sLastCalledMethod)) {
             return null;
@@ -147,25 +133,21 @@ class CacheHelper
         return $this->$sMethodName();
     }
 
-    /* @return array */
     private function getPathList(): array
     {
         return $this->arPathList;
     }
 
-    /* @return int */
     private function getSize(): int
     {
         return $this->iSize;
     }
 
-    /* @return int */
     private function getTotalSize(): int
     {
         return $this->iTotalSize;
     }
 
-    /* @return string */
     private function getTotalSizeFormatted(): string
     {
         return FileHelper::formatBytes($this->iTotalSize);
