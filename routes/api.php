@@ -1,6 +1,6 @@
 <?php
 
-use Falbar\NovaCardCache\Http\Controllers\ApiController;
+use Akbsit\NovaCardCache\Http\Controllers\ApiController;
 use Illuminate\Support\Facades\Route;
 
 /*

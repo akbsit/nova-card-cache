@@ -1,5 +1,5 @@
 {
-  "name": "falbar/nova-card-cache",
+  "name": "akbsit/nova-card-cache",
   "description": "Cleaning application cache from laravel nova dashboard card.",
   "keywords": [
     "laravel",
@@ -9,7 +9,6 @@
     "redis",
     "flush"
   ],
-  "homepage": "http://falbar.ru/",
   "license": "MIT",
   "require": {
     "php": "^8.1",
@@ -18,13 +17,13 @@
   },
   "autoload": {
     "psr-4": {
-      "Falbar\\NovaCardCache\\": "src/"
+      "Akbsit\\NovaCardCache\\": "src/"
     }
   },
   "extra": {
     "laravel": {
       "providers": [
-        "Falbar\\NovaCardCache\\CardServiceProvider"
+        "Akbsit\\NovaCardCache\\CardServiceProvider"
       ]
     }
   },

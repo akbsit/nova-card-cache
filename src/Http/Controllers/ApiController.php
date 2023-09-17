@@ -1,10 +1,10 @@
-<?php namespace Falbar\NovaCardCache\Http\Controllers;
+<?php namespace Akbsit\NovaCardCache\Http\Controllers;
 
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Routing\Controller;
 use Illuminate\Http\JsonResponse;
 
-use Falbar\NovaCardCache\Helper\CacheHelper;
+use Akbsit\NovaCardCache\Helper\CacheHelper;
 
 class ApiController extends Controller
 {

@@ -1,4 +1,4 @@
-<?php namespace Falbar\NovaCardCache\Helper;
+<?php namespace Akbsit\NovaCardCache\Helper;
 
 use Illuminate\Foundation\Application;
 use Illuminate\Filesystem\Filesystem;

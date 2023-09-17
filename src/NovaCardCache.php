@@ -1,6 +1,6 @@
-<?php namespace Falbar\NovaCardCache;
+<?php namespace Akbsit\NovaCardCache;
 
-use Falbar\NovaCardCache\Helper\CacheHelper;
+use Akbsit\NovaCardCache\Helper\CacheHelper;
 use Laravel\Nova\Card;
 
 class NovaCardCache extends Card

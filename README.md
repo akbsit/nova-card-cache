@@ -1,11 +1,11 @@
-# nova-card-cache, [Packagist](https://packagist.org/packages/falbar/nova-card-cache), [Nova packages](https://novapackages.com/packages/falbar/nova-card-cache)
+# nova-card-cache, [Packagist](https://packagist.org/packages/akbsit/nova-card-cache), [Nova packages](https://novapackages.com/packages/akbsit/nova-card-cache)
 
 ## Install
 
 To install package, you need run command:
 
 ```bash
-composer require falbar/nova-card-cache
+composer require akbsit/nova-card-cache
 ```
 
 ## Usage
@@ -13,7 +13,7 @@ composer require falbar/nova-card-cache
 Add the card tools to your dashboard:
 
 ```php
-use Falbar\NovaCardCache\NovaCardCache;
+use Akbsit\NovaCardCache\NovaCardCache;
 
 protected function cards()
 {
