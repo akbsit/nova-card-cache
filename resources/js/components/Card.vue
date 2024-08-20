@@ -6,8 +6,8 @@
       </h1>
     </div>
   </Card>
-  <Card v-else class="ncc_flex ncc_items-center ncc_justify-center">
-    <div class="ncc_flex-1 ncc_pl-8 ncc_pr-3">
+  <Card v-else class="relative h-full px-6 py-4 overflow-hidden bg-white rounded-lg shadow dark:bg-gray-800 isolate md:col-span-6 min-h-40">
+    <div class="ncc_flex-1">
       <h1 class="ncc_text-3xl ncc_text-80 ncc_font-light">
         Cache
       </h1>
@@ -15,25 +15,38 @@
         Cache Size: <code>{{ size }}</code>
       </div>
     </div>
-    <div v-if="size" class="ncc_flex-2 ncc_pr-8 ncc_pl-3 ncc_text-right">
-      <div class="ncc_flex ncc_flex-col">
-        <button @click="flushCache" v-bind:class="getClassList()">
+    <div v-if="size" class="ncc_flex-2 ncc_pr-8 ncc_text-right">
+      <div class="ncc_flex-col">
+        <button @click="openModal" v-bind:class="getClassList()">
           <span v-if="isLoadingData" v-html="loaderIcon"></span>
           Flush
         </button>
       </div>
     </div>
   </Card>
+  <ConfirmModal :show="showModal" @close="handleClose" @confirm="handleConfirm">
+    <ModalHeader>Confirm Flush Cache!</ModalHeader>
+    <ModalContent>
+        <p class="leading-normal">
+            Do you really want to perform this action?
+        </p>
+    </ModalContent>
+  </ConfirmModal>
 </template>
 
 <script>
+import ConfirmModal from './ConfirmModal';
 import { ROUTE } from '../constants';
 
 export default {
+  components: {
+    ConfirmModal,
+  },
   props: ['card'],
   data() {
     return {
       isLoadingData: false,
+      showModal: false,
       size: null
     }
   },
@@ -59,13 +72,13 @@ export default {
 
       return sClassList;
     },
-    async flushCache() {
-      if (this.isLoadingData) {
-        return
-      }
-
+    openModal() {
+      this.isLoadingData = false;
+      this.showModal = true;
+    },
+    async handleConfirm() {
       this.isLoadingData = true;
-
+      this.showModal = false;
       await Nova.request().delete(ROUTE.API_CACHE_DELETE)
         .then((response) => {
           const { data } = response.data;
@@ -77,7 +90,11 @@ export default {
         });
 
       this.isLoadingData = false;
-    }
-  }
-}
+    },
+    handleClose() {
+      this.showModal = false;
+      this.isLoadingData = false;
+    },
+  },
+};
 </script>
